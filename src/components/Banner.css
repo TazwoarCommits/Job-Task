@@ -1,0 +1,14 @@
+.banner {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../assets/banner.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    width: 100%;
+}
+
+.bg{
+    background: linear-gradient(rgba(2, 54, 88, 0.267) , rgba(2, 37, 61, 0.315)) , url("../assets/to-do.jpg");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+}
