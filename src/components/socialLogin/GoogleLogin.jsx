@@ -2,13 +2,26 @@ import { GoogleAuthProvider } from "firebase/auth";
 import { FaGoogle } from "react-icons/fa";
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 const GoogleLogin = () => {
     const { googleLogin } = useContext(AuthContext);
     const provider = new GoogleAuthProvider;
+    const navigate = useNavigate() ;
 
     const handleGoogleLogin = () => {
-      googleLogin(provider);
+      googleLogin(provider)
+        .then(res => {
+            if(res?.user){
+                toast.success("Successfully Logged in") ;
+                navigate("/")
+            } 
+        })
+
+        .catch(err => {
+            toast.error(`${err.message}`) ;
+        })
     }
    
 

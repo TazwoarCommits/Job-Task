@@ -3,6 +3,7 @@ import Login from "../Pages/Login";
 import MainLayout from "../Layouts/MainLayout";
 import MyTasks from "../Pages/MyTasks";
 import Home from "../Pages/Home";
+import PrivateRoutes from "./PrivateRoutes";
 
 const Routes = createBrowserRouter([
     {
@@ -15,7 +16,7 @@ const Routes = createBrowserRouter([
         },
         {
             path : "/my-task",
-            element : <MyTasks></MyTasks>
+            element : <PrivateRoutes><MyTasks></MyTasks></PrivateRoutes>
         }
       ]
     },

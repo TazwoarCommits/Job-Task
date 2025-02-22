@@ -5,50 +5,51 @@ import { Link } from "react-router-dom";
 import "./Banner.css"
 import { useContext } from "react";
 import { AuthContext } from "../Contexts/AuthProvider";
-import useAxiosPublic from "../Hooks/useAxiosPublic";
-import Swal from "sweetalert2";
+// import useAxiosPublic from "../Hooks/useAxiosPublic";
+// import Swal from "sweetalert2";
+import AddTask from "./AddTask";
 
 const OverView = () => {
     const { user } = useContext(AuthContext);
-    const axiosPublic = useAxiosPublic();
+    // const axiosPublic = useAxiosPublic();
 
-    const handleSubmit = async e => {
-        e.preventDefault() ;
+    // const handleSubmit = async e => {
+    //     e.preventDefault() ;
 
-        const form = new FormData(e.target) ; 
+    //     const form = new FormData(e.target) ; 
 
-        const title = form.get("title") ;
-        const description = form.get("description") ;
-        const createdAt = new Date() ;
-        const category = "to-do"
-        const author = user.email ;
+    //     const title = form.get("title") ;
+    //     const description = form.get("description") ;
+    //     const createdAt = new Date() ;
+    //     const category = "to-do"
+    //     const author = user.email ;
 
-        const newTask = {title, description, createdAt, category, author}
+    //     const newTask = {title, description, createdAt, category, author}
 
-        const {data} = await axiosPublic.post("/tasks" , newTask ) ;
-         if(data.insertedId){
-            Swal.fire({
-                position: "center",
-                icon: "success",
-                title: "Your task has been saved",
-                showConfirmButton: false,
-                timer: 1500
-              });
+    //     const {data} = await axiosPublic.post("/tasks" , newTask ) ;
+    //      if(data.insertedId){
+    //         Swal.fire({
+    //             position: "center",
+    //             icon: "success",
+    //             title: "Your task has been saved",
+    //             showConfirmButton: false,
+    //             timer: 1500
+    //           });
 
-              e.target.reset() ;
-         }
-         else{
-            Swal.fire({
-                position: "center",
-                icon: "error",
-                title: "Something went wrong",
-                showConfirmButton: false,
-                timer: 1500
-              });
+    //           e.target.reset() ;
+    //      }
+    //      else{
+    //         Swal.fire({
+    //             position: "center",
+    //             icon: "error",
+    //             title: "Something went wrong",
+    //             showConfirmButton: false,
+    //             timer: 1500
+    //           });
               
-         }
+    //      }
 
-    }
+    // }
 
     return (
         <div className="bg py-8 md:p-12 md:rounded-2xl">
@@ -62,14 +63,7 @@ const OverView = () => {
                         <div className="p-6 w-full mx-auto md:pt-12">
                             <h4 className="text-2xl font-semibold text-center text-cyan-900">Add A New Task</h4>
                             <div className="flex justify-center flex-col items-center">
-                                <form onSubmit={handleSubmit}
-                                className="bg-gray-100/25 md:px-6 md:py-8 rounded-md">
-                                    <input type="text" name="title" placeholder="Type here" className="mb-2 bg-gray-100/40 text-black input input-bordered w-full" />
-                                    <textarea
-                                        placeholder="Description" name="description"
-                                        className="h-[150px] textarea textarea-bordered textarea-lg w-full bg-gray-100/40 resize-none mb-2"></textarea>
-                                    <button className="bg-gray-100/40 font-semibold text-gray-700 px-4 py-2 rounded-lg">Add</button>    
-                                </form>
+                               <AddTask></AddTask>
                             </div>
                         </div>
 
