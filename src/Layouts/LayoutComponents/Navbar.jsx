@@ -13,7 +13,7 @@ const Navbar = () => {
     return (
         <div className="w-11/12 mx-auto navbar">
             <div className="flex-1">
-                <a className="text-xl font-semibold text-cyan-900">Task Launcher</a>
+                <a className="text-xl font-bold text-cyan-900 ">Task Launcher</a>
             </div>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
@@ -27,6 +27,7 @@ const Navbar = () => {
                     <ul
                         tabIndex={0}
                         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                            {user? <li> {user?.displayName}</li> : ""}
                         <li>
                             <a className="justify-between">
                                 Profile
