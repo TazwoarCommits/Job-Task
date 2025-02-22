@@ -4,6 +4,7 @@ import MainLayout from "../Layouts/MainLayout";
 import MyTasks from "../Pages/MyTasks";
 import Home from "../Pages/Home";
 import PrivateRoutes from "./PrivateRoutes";
+import EditTask from "../Pages/EditTask";
 
 const Routes = createBrowserRouter([
     {
@@ -17,7 +18,11 @@ const Routes = createBrowserRouter([
         {
             path : "/my-task",
             element : <PrivateRoutes><MyTasks></MyTasks></PrivateRoutes>
-        }
+        },
+        {
+            path : "/edit-task/:id",
+            element : <PrivateRoutes><EditTask></EditTask></PrivateRoutes>
+        },
       ]
     },
     {
