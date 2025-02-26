@@ -63,7 +63,6 @@ const TaskCard = ({task, refetch }) => {
 TaskCard.propTypes = {
     task : PropTypes.object.isRequired,
     refetch : PropTypes.func.isRequired,
-    // moveTask : PropTypes.func.isRequired
 }
 
 export default TaskCard;
