@@ -1,10 +1,11 @@
 import { createBrowserRouter } from "react-router-dom";
 import Login from "../Pages/Login";
 import MainLayout from "../Layouts/MainLayout";
-import MyTasks from "../Pages/MyTasks";
+
 import Home from "../Pages/Home";
 import PrivateRoutes from "./PrivateRoutes";
 import EditTask from "../Pages/EditTask";
+import MyTasks from "../Pages/MyTasks";
 
 const Routes = createBrowserRouter([
     {

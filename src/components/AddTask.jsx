@@ -2,8 +2,9 @@ import { useContext } from 'react';
 import { AuthContext } from '../Contexts/AuthProvider';
 import useAxiosPublic from '../Hooks/useAxiosPublic';
 import Swal from 'sweetalert2';
+import PropTypes from 'prop-types';
 
-const AddTask = () => {
+const AddTask = ({refetch}) => {
     const { user } = useContext(AuthContext);
     const axiosPublic = useAxiosPublic();
 
@@ -22,6 +23,7 @@ const AddTask = () => {
 
         const { data } = await axiosPublic.post("/tasks", newTask);
         if (data.insertedId) {
+            refetch() ;
             Swal.fire({
                 position: "center",
                 icon: "success",
@@ -56,5 +58,8 @@ const AddTask = () => {
         </form>
     );
 };
+AddTask.propTypes = {
+    refetch : PropTypes.func.isRequired,
+}
 
 export default AddTask;
