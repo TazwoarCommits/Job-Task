@@ -28,7 +28,7 @@ const EditTask = () => {
      }
 
      const {data} = await axiosPublic.patch(`/tasks/${params.id}` , updatedTask) 
-     console.log(data);
+    //  console.log(data);
      if(data.modifiedCount > 0){
         e.target.reset() ;
         Swal.fire({

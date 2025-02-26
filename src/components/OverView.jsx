@@ -8,9 +8,11 @@ import { AuthContext } from "../Contexts/AuthProvider";
 // import useAxiosPublic from "../Hooks/useAxiosPublic";
 // import Swal from "sweetalert2";
 import AddTask from "./AddTask";
+import useTasks from "../Hooks/useTasks";
 
 const OverView = () => {
     const { user } = useContext(AuthContext);
+    const {refetch} = useTasks() ;
     // const axiosPublic = useAxiosPublic();
 
     // const handleSubmit = async e => {
@@ -63,7 +65,7 @@ const OverView = () => {
                         <div className="p-6 w-full mx-auto md:pt-12">
                             <h4 className="text-2xl font-semibold text-center text-cyan-900">Add A New Task</h4>
                             <div className="flex justify-center flex-col items-center">
-                               <AddTask></AddTask>
+                               <AddTask refetch={refetch}></AddTask>
                             </div>
                         </div>
 
