@@ -9,49 +9,22 @@ import { AuthContext } from "../Contexts/AuthProvider";
 // import Swal from "sweetalert2";
 import AddTask from "./AddTask";
 import useTasks from "../Hooks/useTasks";
+import Swal from "sweetalert2";
 
 const OverView = () => {
     const { user } = useContext(AuthContext);
     const {refetch} = useTasks() ;
-    // const axiosPublic = useAxiosPublic();
 
-    // const handleSubmit = async e => {
-    //     e.preventDefault() ;
-
-    //     const form = new FormData(e.target) ; 
-
-    //     const title = form.get("title") ;
-    //     const description = form.get("description") ;
-    //     const createdAt = new Date() ;
-    //     const category = "to-do"
-    //     const author = user.email ;
-
-    //     const newTask = {title, description, createdAt, category, author}
-
-    //     const {data} = await axiosPublic.post("/tasks" , newTask ) ;
-    //      if(data.insertedId){
-    //         Swal.fire({
-    //             position: "center",
-    //             icon: "success",
-    //             title: "Your task has been saved",
-    //             showConfirmButton: false,
-    //             timer: 1500
-    //           });
-
-    //           e.target.reset() ;
-    //      }
-    //      else{
-    //         Swal.fire({
-    //             position: "center",
-    //             icon: "error",
-    //             title: "Something went wrong",
-    //             showConfirmButton: false,
-    //             timer: 1500
-    //           });
-              
-    //      }
-
-    // }
+    const handleLogin = () => {
+        Swal.fire({
+            position: "center",
+            icon: "info",
+            title: "Please Login With Google",
+            showConfirmButton: false,
+            timer: 1500
+          });
+    }
+ 
 
     return (
         <div className="bg py-8 md:p-12 md:rounded-2xl">
@@ -73,10 +46,10 @@ const OverView = () => {
 
                         <div className="w-full mx-auto md:pt-12">
                             <h4 className="text-2xl font-semibold text-center text-cyan-900">Sign-In to Add New Task</h4>
-                            <div className="flex justify-center flex-col items-center">
+                            <div id="login" className="flex justify-center flex-col items-center">
                                 <GoogleLogin></GoogleLogin>
                                 <Link>
-                                    <button
+                                    <button onClick={handleLogin}
                                         className="flex min-w-80 items-center justify-center font-semibold gap-1 md:gap-2 mx-auto bg-teal-700 rounded-lg py-3 px-4">
                                         <span className="text-white">Login with your email password</span>
                                     </button>

@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../../Contexts/AuthProvider";
 import { NavLink } from "react-router-dom";
+import { Link } from "react-scroll";
 
 
 const Navbar = () => {
@@ -17,7 +18,7 @@ const Navbar = () => {
             </div>
             <ul className="space-x-3 mr-3 hidden md:flex">
                 <li> <NavLink to="/">Home</NavLink></li>
-                <li><NavLink to="/my-task">My-Tasks</NavLink></li>
+                {user? <li><NavLink to="/my-task">My-Tasks</NavLink></li> : <li><Link to="login" smooth={true} >Login</Link></li>}
             </ul>
             <div className="flex-none">
                 <div className="dropdown dropdown-end">
