@@ -35,5 +35,4 @@
 
 npm install
 
- ## Get [*_Parcel-Cloud_*](https://parcel-cloud.netlify.app/) 
- ## Get [*_Api_*](https://y-nu-two.vercel.app/) 
+ ## Get [*_Task-Launcher_*](https://task-launcher.netlify.app/)
